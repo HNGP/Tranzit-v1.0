@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranzit</title>
+    <script src="algo.js"></script>
+</head>
+<body>
+    <h1>Welcome To Tranzit</h1>
+    <form onsubmit="getRoute(); return false;">
+        <label for="Source">Source Station:</label>
+        <select id="src">
+          <option value="Gurgaon">Gurgaon</option>
+          <option value="Saket">Saket</option>
+          <option value="HauzKhas">Hauz Khas</option>
+          <option value="INA">INA</option>
+          <option value="IITD">IIT Delhi</option>
+          <option value="BotanicalGarden">Botanical Garden</option>
+          <option value="Noida">Noida</option>
+          <option value="RajivChowk">Rajiv Chowk</option>
+          <option value="Munirka">Munirka</option>
+          <option value="Airport">Airport</option>
+          <option value="Janakpuri">Janakpuri</option>
+          <option value="Dwarka">Dwarka</option>
+        </select>
+        <label for="Destination">Destination Station:</label>
+        <select id= "dest">
+          <option value="Gurgaon">Gurgaon</option>
+          <option value="Saket">Saket</option>
+          <option value="HauzKhas">Hauz Khas</option>
+          <option value="INA">INA</option>
+          <option value="IITD">IIT Delhi</option>
+          <option value="BotanicalGarden">Botanical Garden</option>
+          <option value="Noida">Noida</option>
+          <option value="RajivChowk">Rajiv Chowk</option>
+          <option value="Munirka">Munirka</option>
+          <option value="Airport">Airport</option>
+          <option value="Janakpuri">Janakpuri</option>
+          <option value="Dwarka">Dwarka</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="result">
+        <h1 id="dist"></h1>
+        <p id="route"></p>
+    </div>
+</body>
+</html>
