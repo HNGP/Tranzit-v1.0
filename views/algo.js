@@ -50,7 +50,7 @@ const problem = {
   let findShortestPath = (graph, startNode, endNode) => {
   
   // track distances from the start node using a hash object
-    let distances = {};
+  let distances = {};
   distances[endNode] = "Infinity";
   distances = Object.assign(distances, graph[startNode]);
   // track paths using a hash object
@@ -58,10 +58,6 @@ const problem = {
   for (let child in graph[startNode]) {
     parents[child] = startNode;
   }
-
-  console.log(parents)
-  console.log(distances)
-    
   // collect visited nodes
     let visited = [];
   // find the nearest node
@@ -82,6 +78,7 @@ const problem = {
         } else {
             // save the distance from the start node to the child node
             let newdistance = distance + children[child];
+
   // if there's no recorded distance from the start node to the child node in the distances object
   // or if the recorded distance is shorter than the previously stored distance from the start node to the child node
             if (!distances[child] || distances[child] > newdistance) {
@@ -94,6 +91,7 @@ const problem = {
         }
         // move the current node to the visited set
         visited.push(node);
+
   // move to the nearest neighbor node
         node = shortestDistanceNode(distances, visited);
       }
@@ -105,6 +103,7 @@ const problem = {
   while (parent) {
     shortestPath.push(parent);
     parent = parents[parent];
+    console.log(shortestPath)
   }
   shortestPath.reverse();
     
