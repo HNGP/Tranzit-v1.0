@@ -103,3 +103,12 @@ select{
 #route li{
     list-style-image: url("arrow.png");
 }
+
+.container2{
+    height: 100%;
+    width: 60%;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    padding:1%;
+}
