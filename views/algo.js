@@ -58,6 +58,9 @@ const problem = {
   for (let child in graph[startNode]) {
     parents[child] = startNode;
   }
+
+  console.log(parents)
+  console.log(distances)
     
   // collect visited nodes
     let visited = [];
@@ -118,13 +121,16 @@ let getRoute = () => {
     let source = document.getElementById('src').value;
     let destination = document.getElementById('dest').value;
     let result = findShortestPath(problem, source, destination);
-    document.getElementById("dist").textContent += "Distance: "+result.distance;
+    document.getElementById("dist").innerHTML = "";
+    document.getElementById("route").innerHTML = "";
+
+    document.getElementById("dist").textContent += "Distance: "+result.distance+"km";
     var count = result.path.length;
   for (var x in result.path) {
-    document.getElementById("route").textContent += result.path[x];
+    document.getElementById("route").innerHTML += result.path[x];
       if(count>1)
       {
-        document.getElementById("route").textContent += ' -> ';
+        document.getElementById("route").innerHTML += '<li>';
       }
       count = count - 1;
   }

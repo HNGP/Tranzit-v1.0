@@ -1,0 +1,105 @@
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #e0e5ec;
+}
+
+td, th {
+    border: 1px ;
+    text-align: left;
+    padding: 10px;
+    font-size: 20px;
+
+  }
+
+.Header{
+    position: fixed;
+    width: 100%;
+    padding: 35px 0;
+    z-index: 100;
+    transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0px 2px 10px rgb(163, 177, 198, 0.6);
+    color: aliceblue;
+    backdrop-filter: blur(20px);
+}
+
+.Nav a {
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+.Nav{
+    margin: 0 auto;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    align-items: center;
+    justify-items: center;
+}
+
+table{
+    margin-top: 40px;
+}
+
+.result{
+    margin-top: 50px;
+}
+
+.container{
+    /* max-width: 700px;
+    margin: 100px auto; */
+    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 60%;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    padding:1%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px 10px;
+    background: #e0e5ec;
+    display: flex;
+    justify-content: center;
+}
+
+select{
+    background-color: lightgrey;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    opacity: 0.8;
+    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+   
+    
+}
+
+.button{
+    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+    border: 0;
+    background-color: #e0e5ec;
+    border-radius: 10px;
+    padding: 10px;
+    width: 40px;
+}
+
+#dist{
+    text-align: center;
+}
+
+#route{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+ 
+}
+
+#route li{
+    list-style-image: url("arrow.png");
+}
