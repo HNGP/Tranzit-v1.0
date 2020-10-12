@@ -38,18 +38,114 @@ const graph = {
   
 }
 const problem = {
-  Gurgaon: {Saket: 18},
-  Saket: {Gurgaon: 18, HauzKhas: 5},
-  HauzKhas: {Saket: 5, INA: 8, IITD: 7, BotanicalGarden: 17},
-  INA: {HauzKhas: 8, RajivChowk: 9},
-  IITD: {HauzKhas: 7, Munirka: 1},
-  BotanicalGarden: {HauzKhas: 17, RajivChowk: 18, Noida: 12},
-  Noida: {BotanicalGarden: 12},
-  RajivChowk: {BotanicalGarden: 18, Dwarka: 24, INA: 9},
-  Munirka: {IITD: 1, Airport: 9},
-  Airport: {Munirka: 9, Janakpuri: 11},
-  Janakpuri: {Airport: 11, Dwarka: 12},
-  Dwarka: {Janakpuri: 12, RajivChowk: 24}
+  "HUDA City Centre": {
+    "connected": {"Saket": 14.31},
+    "details": {
+      "line": ["Yellow Line"],
+      "layout": "Elevated",
+      "longitude": 77.07268,
+      "latitude": 28.45927
+    }
+  },
+  "Saket": { 
+    "connected": {"Saket": 14.31,"Hauz Khas": 2.56},
+    "details": {
+    "line": ["Yellow Line"],
+    "layout": "Underground",
+    "longitude": 77.20138,
+    "latitude": 28.52060
+    }
+  },
+  "Hauz Khas": { 
+    "connected": {"Saket": 2.56, "INA": 3.56, "IITD": 1.33, "Botanical Garden": 12.67},
+    "details": {
+    "line": ["Yellow Line","Magenta Line"],
+    "layout": "Underground",
+    "longitude": 77.20667,
+    "latitude": 28.54335
+    }
+  },
+  "INA": {
+    "connected": {"Hauz Khas": 3.56, "Rajiv Chowk": 6.46},
+    "details": {
+      "line": ["Yellow Line"],
+      "layout": "Underground",
+      "longitude": 77.20935,
+      "latitude": 28.57526
+    }
+  },
+  "IITD": {
+    "connected": {"Hauz Khas": 1.33, "Munirka": 2.28},
+    "details": {
+      "line": ["Magenta Line"],
+      "layout": "Underground",
+      "longitude": 77.193816,
+      "latitude": 28.547170
+    }
+  },
+  "Botanical Garden": {
+    "connected": {"Hauz Khas": 12.67, "Rajiv Chowk": 13.66, "Noida City Centre": 2.44},
+    "details": {
+      "line": ["Blue Line"],
+      "layout": "Elevated",
+      "longitude": 77.33420,
+      "latitude": 28.56409
+    }
+  },
+  "Noida City Centre": { 
+    "connected": {"Botanical Garden": 2.44},
+    "details": {
+      "line": ["Blue Line"],
+      "layout": "Elevated",
+      "longitude": 77.35608,
+      "latitude": 28.57466
+    }
+  },
+  "Rajiv Chowk": {
+    "connected": {"Botanical Garden": 13.66, "Dwarka": 19.25, "INA": 6.46},
+    "details": {
+      "line": ["Yellow Line", "Blue Line"],
+      "layout": "Underground",
+      "longitude": 77.21826,
+      "latitude": 28.63282
+    }
+  },
+  "Munirka": { 
+    "connected": {"IITD": 2.28, "Indira Gandhi International Airport": 8.53},
+    "details": {
+      "line": ["Magenta Line"],
+      "layout": "Underground",
+      "longitude": 77.174012,
+      "latitude": 28.557945
+    }
+  },
+  "Indira Gandhi International Airport": {
+    "connected": {"Munirka": 8.53, "Janakpuri West": 8.11},
+    "details": {
+      "line": ["Airport Express","Mangenta Line","Blue Line"],
+      "layout": "Underground",
+      "longitude": 77.08669,
+      "latitude": 28.55693
+    }
+  },
+  "Janakpuri West": {
+    "connected" : {"Indira Gandhi International Airport": 8.11, "Dwarka": 5.65},
+    "details": {
+      "line": ["Blue Line"],
+      "layout": "Elevated",
+      "longitude": 77.07767,
+      "latitude": 28.62943
+    }
+  },
+  "Dwarka": {
+    "connected": {"Janakpuri West": 5.65, "Rajiv Chowk": 19.25},
+    "details": {
+      "line": ["Blue Line"],
+      "layout": "Elevated",
+      "longitude": 77.02197,
+      "latitude": 28.61564
+    }
+  },
 }
 
 //   const problem = {
@@ -79,13 +175,13 @@ const problem = {
     return shortest;
 };
 
-  let findShortestPath = (graph, startNode, endNode) => {
+  let findShortestPath = (problem, startNode, endNode) => {
   let distances = {};
   distances[endNode] = "Infinity";
-  distances = Object.assign(distances, graph[startNode]["connected"]);
+  distances = Object.assign(distances, problem[startNode]["connected"]);
   // track paths using a hash object
   let parents = { endNode: null };
-  for (let child in graph[startNode]["connected"]) {
+  for (let child in problem[startNode]["connected"]) {
     parents[child] = startNode;
   }
  
@@ -96,7 +192,7 @@ const problem = {
   
   while (node) {
     let distance = distances[node];
-    let children = graph[node]["connected"]; 
+    let children = problem[node]["connected"]; 
         
   // for each of those child nodes:
         for (let child in children) {
@@ -139,7 +235,7 @@ const problem = {
 let getRoute = () => {
     let source = document.getElementById('src').value;
     let destination = document.getElementById('dest').value;
-    let result = findShortestPath(graph, source, destination);
+    let result = findShortestPath(problem, source, destination);
     document.getElementById("dist").innerHTML = "";
     document.getElementById("route").innerHTML = "";
 
