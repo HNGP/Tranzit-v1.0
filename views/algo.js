@@ -82,12 +82,8 @@ const problem = {
   let findShortestPath = (graph, startNode, endNode) => {
   let distances = {};
   distances[endNode] = "Infinity";
-<<<<<<< HEAD
   distances = Object.assign(distances, graph[startNode]["connected"]);
   // track paths using a hash object
-=======
-  distances = Object.assign(distances, graph[startNode]);
->>>>>>> main
   let parents = { endNode: null };
   for (let child in graph[startNode]["connected"]) {
     parents[child] = startNode;
@@ -100,13 +96,9 @@ const problem = {
   
   while (node) {
     let distance = distances[node];
-<<<<<<< HEAD
     let children = graph[node]["connected"]; 
         
   // for each of those child nodes:
-=======
-    let children = graph[node]; 
->>>>>>> main
         for (let child in children) {
           if (String(child) === String(startNode)) {
             continue;
