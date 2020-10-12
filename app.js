@@ -13,6 +13,10 @@ app.get("/", function(req,res){
     res.sendFile("index");
 });
 
+app.get("/map", function(req,res){
+  res.render("map");
+});
+
 
 let port = process.env.PORT;
 if (port == null || port == "") {
