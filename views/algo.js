@@ -1,4 +1,42 @@
-
+const graph = {
+  "Adarsh Nagar": {
+      "connected": {"AIIMS": 16.8},
+      "details": {
+        "line": ["Yellow Line"],
+        "layout": "Underground",
+        "longitude": 77.17046,
+        "latitude": 28.71642
+      }
+    },
+    "AIIMS" :{
+      "connected": {"Adarsh Nagar": 16.8, "Arjan Garh": 12.63},
+      "details": {
+        "line": ["Yellow Line"],
+        "layout": "Underground",
+        "longitude": 77.20771,
+        "latitude": 28.56892
+      }
+    },
+    "Arjan Garh":{
+      "connected": {"AIIMS": 12.63, "Azadpur": 25.71},
+      "details": {
+        "line": ["Yellow Line"],
+        "layout": "Elevated",
+        "longitude": 77.12583,
+        "latitude": 28.48076
+      }
+    },
+    "Azadpur":{
+      "connected": {"Arjan Garh": 25.71},
+      "details": {
+        "line": ["Yellow Line"],
+        "layout": "Underground",
+        "longitude": 77.18053,
+        "latitude": 28.70696
+      }
+    }
+  
+}
 const problem = {
   Gurgaon: {Saket: 18},
   Saket: {Gurgaon: 18, HauzKhas: 5},
@@ -13,6 +51,7 @@ const problem = {
   Janakpuri: {Airport: 11, Dwarka: 12},
   Dwarka: {Janakpuri: 12, RajivChowk: 24}
 }
+
 //   const problem = {
 //     SamaypurBadli:
 //         RohiniSector18:
@@ -52,10 +91,10 @@ const problem = {
   // track distances from the start node using a hash object
     let distances = {};
   distances[endNode] = "Infinity";
-  distances = Object.assign(distances, graph[startNode]);
+  distances = Object.assign(distances, graph[startNode]["connected"]);
   // track paths using a hash object
   let parents = { endNode: null };
-  for (let child in graph[startNode]) {
+  for (let child in graph[startNode]["connected"]) {
     parents[child] = startNode;
   }
 
@@ -71,7 +110,7 @@ const problem = {
   while (node) {
   // find its distance from the start node & its child nodes
     let distance = distances[node];
-    let children = graph[node]; 
+    let children = graph[node]["connected"]; 
         
   // for each of those child nodes:
         for (let child in children) {
@@ -120,7 +159,7 @@ const problem = {
 let getRoute = () => {
     let source = document.getElementById('src').value;
     let destination = document.getElementById('dest').value;
-    let result = findShortestPath(problem, source, destination);
+    let result = findShortestPath(graph, source, destination);
     document.getElementById("dist").innerHTML = "";
     document.getElementById("route").innerHTML = "";
 
