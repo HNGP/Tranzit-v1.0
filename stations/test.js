@@ -47,7 +47,7 @@ const map = {
   "Botanical Garden": {
     "connected": {"Hauz Khas": 12.67, "Rajiv Chowk": 13.66, "Noida City Centre": 2.44},
     "details": {
-      "line": ["Blue Line"],
+      "line": ["Blue Line", "Magenta Line"],
       "layout": "Elevated",
       "longitude": 77.33420,
       "latitude": 28.56409
@@ -83,7 +83,7 @@ const map = {
   "Indira Gandhi International Airport": {
     "connected": {"Munirka": 8.53, "Janakpuri West": 8.11},
     "details": {
-      "line": ["Airport Express","Mangenta Line","Blue Line"],
+      "line": ["Mangenta Line","Blue Line"],
       "layout": "Underground",
       "longitude": 77.08669,
       "latitude": 28.55693

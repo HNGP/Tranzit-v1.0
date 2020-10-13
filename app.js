@@ -1,5 +1,6 @@
 var express = require("express");
 var path = require('path');
+var bodyParser = require("body-parser")
 var map = require('./stations/test');
 var app = express();
 
@@ -7,8 +8,10 @@ var app = express();
 // app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/views'));
 app.set('views', path.join(__dirname, 'views'));
+
 app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
+
 
 app.get("/", function(req,res){
     res.render("index");
@@ -73,21 +76,37 @@ app.get("/calroute", function(req,res){
     let parent = parents[endNode];
     while (parent) {
       shortestPath.push(parent);
+      console.log(parent);
       parent = parents[parent];
-      console.log(shortestPath)
+      
     }
     shortestPath.reverse();
+    
+    let line = [];
+
+    for(var i in shortestPath){
+      line.push(map.map[shortestPath[i]]["details"]["line"])
+    }
+
+    console.log(line)
+    
+    
       
     let results = {
       distance: distances[endNode],
       path: shortestPath,
+      lines: line
     };
-    
+      
       return results;
   };
 
   let result = findShortestPath(map.map, source, destination);
-  res.render("index", {result: result});
+  console.log(JSON.stringify(result))
+  //lund = JSON.parse(result)
+  //res.send(result)
+  res.render("resultPage", {data: result});
+  
 
 })
 
