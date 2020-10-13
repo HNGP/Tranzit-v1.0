@@ -7,9 +7,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./style.css">
     <script src="algo.js"></script>
+    <script src="geoloc.js"></script>
     
 </head>
-<body>
+<body >
   <div class="Header">
     <div class="Nav">
     <a class ="brand" href="./"><img src="subway.png" width="38px">Tranzit</a>
@@ -19,8 +20,11 @@
    
     </div>
 </div>
+
   <div class = "container">
     <div class = "stackView">
+      <div id = "container2">
+      </div>
       <table>
         <form onsubmit="getRoute(); return false;">
         <tr>
