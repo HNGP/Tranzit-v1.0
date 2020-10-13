@@ -20,54 +20,55 @@
     </div>
 </div>
   <div class = "container">
-
-  <div class = "stackView">
-   <table>
-    <form onsubmit="getRoute(); return false;">
-       <tr> 
-         <td><label for="Source">Source:</label></td>
+    <div class = "stackView">
+      <table>
+        <form onsubmit="getRoute(); return false;">
+        <tr>
+          <td><label for="Source">Source:</label></td>
           <td><label for="Destination">Destination:</label></td>
        </tr>
-       <tr> 
+       <tr>
          <td>
-          <input type="text" id="src">
-        <!--<select id="src">
-          <option value="Gurgaon">Gurgaon</option>
-          <option value="Saket">Saket</option>
-          <option value="HauzKhas">Hauz Khas</option>
-          <option value="INA">INA</option>
-          <option value="IITD">IIT Delhi</option>
-          <option value="BotanicalGarden">Botanical Garden</option>
-          <option value="Noida">Noida</option>
-          <option value="RajivChowk">Rajiv Chowk</option>
-          <option value="Munirka">Munirka</option>
-          <option value="Airport">Airport</option>
-          <option value="Janakpuri">Janakpuri</option>
-          <option value="Dwarka">Dwarka</option>
-        </select>-->
-      </td>
+           <!-- <input type="text" id="src"> -->
+           <select id="src">
+            <option value="">Choose Source</option>
+            <option value="HUDA City Centre">HUDA City Centre</option>
+            <option value="Saket">Saket</option>
+            <option value="Hauz Khas">Hauz Khas</option>
+            <option value="INA">INA</option>
+            <option value="Botanical Garden">Botanical Garden</option>
+            <option value="Noida City Centre">Noida City Centre</option>
+            <option value="Rajiv Chowk">Rajiv Chowk</option>
+            <option value="Munirka">Munirka</option>
+            <option value="Indira Gandhi International Airport">Indira Gandhi International Airport</option>
+            <option value="Janakpuri West">Janakpuri West</option>
+            <option value="Dwarka">Dwarka</option>
+          </select>
+        </td>
       <td>
-        <input type="text" id="dest">
-        <!--<select id= "dest">
-          <option value="Gurgaon">Gurgaon</option>
+        <!-- <input type="text" id="dest"> -->
+        <select id= "dest">
+          <option value="">Choose Destination</option>
+          <option value="HUDA City Centre">HUDA City Centre</option>
           <option value="Saket">Saket</option>
-          <option value="HauzKhas">Hauz Khas</option>
+          <option value="Hauz Khas">Hauz Khas</option>
           <option value="INA">INA</option>
-          <option value="IITD">IIT Delhi</option>
-          <option value="BotanicalGarden">Botanical Garden</option>
-          <option value="Noida">Noida</option>
-          <option value="RajivChowk">Rajiv Chowk</option>
+          <option value="Botanical Garden">Botanical Garden</option>
+          <option value="Noida City Centre">Noida City Centre</option>
+          <option value="Rajiv Chowk">Rajiv Chowk</option>
           <option value="Munirka">Munirka</option>
-          <option value="Airport">Airport</option>
-          <option value="Janakpuri">Janakpuri</option>
+          <option value="Indira Gandhi International Airport">Indira Gandhi International Airport</option>
+          <option value="Janakpuri West">Janakpuri West</option>
           <option value="Dwarka">Dwarka</option>
-        </select>-->
-      </td> </tr>
+        </select>
+      </td>
+    </tr>
 
       <tr>
-      <td colspan="2">
-        <input type="submit" class="btn-block my-4 button" value="FIND SHORTEST ROUTE">
-      </td></tr>
+        <td colspan="2">
+          <input type="submit" class="btn-block my-4 button" value="FIND SHORTEST ROUTE">
+        </td>
+      </tr>
     </form>
   </table>
  

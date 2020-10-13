@@ -47,8 +47,8 @@ const problem = {
       "latitude": 28.45927
     }
   },
-  "Saket": { 
-    "connected": {"Saket": 14.31,"Hauz Khas": 2.56},
+  "Saket": {
+    "connected": {"HUDA City Centre": 14.31,"Hauz Khas": 2.56},
     "details": {
     "line": ["Yellow Line"],
     "layout": "Underground",
@@ -56,7 +56,7 @@ const problem = {
     "latitude": 28.52060
     }
   },
-  "Hauz Khas": { 
+  "Hauz Khas": {
     "connected": {"Saket": 2.56, "INA": 3.56, "IITD": 1.33, "Botanical Garden": 12.67},
     "details": {
     "line": ["Yellow Line","Magenta Line"],
@@ -92,7 +92,7 @@ const problem = {
       "latitude": 28.56409
     }
   },
-  "Noida City Centre": { 
+  "Noida City Centre": {
     "connected": {"Botanical Garden": 2.44},
     "details": {
       "line": ["Blue Line"],
@@ -110,7 +110,7 @@ const problem = {
       "latitude": 28.63282
     }
   },
-  "Munirka": { 
+  "Munirka": {
     "connected": {"IITD": 2.28, "Indira Gandhi International Airport": 8.53},
     "details": {
       "line": ["Magenta Line"],
@@ -147,35 +147,20 @@ const problem = {
     }
   },
 }
-
-//   const problem = {
-//     SamaypurBadli:
-//         RohiniSector18:
-//         OuterRingRoad:
-//         HaiderpurBadliMor:
-//         IndianRailways:
-//         Jahangirpuri:
-//         AdarshNagar
-//         RingRoad
-//         Azadpur
-//         ModelTown
-//   };
   
-  let shortestDistanceNode = (distances, visited) => {
- 
-    let shortest = null;
-    
-    for (let node in distances) {
-        let currentIsShortest =
-            shortest === null || distances[node] < distances[shortest];
-        if (currentIsShortest && !visited.includes(node)) {
-            shortest = node;
-        }
+let shortestDistanceNode = (distances, visited) => {
+  let shortest = null;
+  
+  for (let node in distances) {
+    let currentIsShortest = shortest === null || distances[node] < distances[shortest];
+    if (currentIsShortest && !visited.includes(node)) {
+      shortest = node;
     }
-    return shortest;
+  }
+  return shortest;
 };
 
-  let findShortestPath = (problem, startNode, endNode) => {
+let findShortestPath = (problem, startNode, endNode) => {
   let distances = {};
   distances[endNode] = "Infinity";
   distances = Object.assign(distances, problem[startNode]["connected"]);
@@ -187,33 +172,28 @@ const problem = {
  
     let visited = [];
 
-    let node = shortestDistanceNode(distances, visited);
+  let node = shortestDistanceNode(distances, visited);
   
   
   while (node) {
     let distance = distances[node];
-    let children = problem[node]["connected"]; 
+    let children = problem[node]["connected"];
         
   // for each of those child nodes:
-        for (let child in children) {
-          if (String(child) === String(startNode)) {
-            continue;
-        } else {
-            let newdistance = distance + children[child];
-
-            if (!distances[child] || distances[child] > newdistance) {
-      distances[child] = newdistance;
-  
-      parents[child] = node;
-      }
-          }
+    for (let child in children) {
+      if (String(child) === String(startNode)) {
+        continue;
+      } else {
+        let newdistance = distance + children[child];
+        if (!distances[child] || distances[child] > newdistance) {
+          distances[child] = newdistance;
+          parents[child] = node;
         }
-      
-        visited.push(node);
-
- 
-        node = shortestDistanceNode(distances, visited);
       }
+    }
+    visited.push(node);
+    node = shortestDistanceNode(distances, visited);
+  }
 
   let shortestPath = [endNode];
   let parent = parents[endNode];
@@ -223,7 +203,7 @@ const problem = {
     console.log(shortestPath)
   }
   shortestPath.reverse();
-  
+    
   let results = {
     distance: distances[endNode],
     path: shortestPath,
@@ -233,20 +213,43 @@ const problem = {
 };
 
 let getRoute = () => {
-    let source = document.getElementById('src').value;
-    let destination = document.getElementById('dest').value;
-    let result = findShortestPath(problem, source, destination);
-    document.getElementById("dist").innerHTML = "";
-    document.getElementById("route").innerHTML = "";
+  let source = document.getElementById('src').value;
+  let destination = document.getElementById('dest').value;
+  let result = findShortestPath(problem, source, destination);
+  document.getElementById("dist").innerHTML = "";
+  document.getElementById("route").innerHTML = "";
 
-    document.getElementById("dist").textContent += "Distance: "+result.distance+"km";
-    var count = result.path.length;
+  document.getElementById("dist").textContent += "Distance: " + result.distance + "km";
+  var count = result.path.length;
   for (var x in result.path) {
     document.getElementById("route").innerHTML += result.path[x];
-      if(count>1)
-      {
-        document.getElementById("route").innerHTML += '<li>';
+    document.getElementById("route").innerHTML += " ";
+    var line = problem[result.path[x]]["details"]["line"];
+    for (var y in line) {
+      if (line[y] == "Blue Line") {
+        document.getElementById("route").innerHTML += line;
+        document.getElementById("route").classList.add("blue");
+        document.getElementById("route").classList.remove("yellow");
+        document.getElementById("route").classList.remove("magenta");
       }
-      count = count - 1;
+      else if (line[y] == "Yellow Line") {
+        document.getElementById("route").innerHTML += line;
+        document.getElementById("route").classList.add("yellow");
+        document.getElementById("route").classList.remove("blue");
+        document.getElementById("route").classList.remove("magenta");
+      }
+      else if (line[y] == "Magenta Line") {
+        document.getElementById("route").innerHTML += line;
+        document.getElementById("route").classList.add("magenta");
+        document.getElementById("route").classList.remove("blue");
+        document.getElementById("route").classList.remove("yellow");
+      }
+    }
+    
+    if (count > 1)
+    {
+      document.getElementById("route").innerHTML += '<li>';
+    }
+    count = count - 1;
   }
 }
