@@ -1,5 +1,6 @@
 var express = require("express");
 var path = require('path');
+var map = require('./stations/test');
 var app = express();
 
 
@@ -10,12 +11,85 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.get("/", function(req,res){
-    res.sendFile("index");
+    res.render("index");
 });
 
 app.get("/map", function(req,res){
   res.render("map");
 });
+
+app.get("/calroute", function(req,res){
+  var source = req.query.src;
+  var destination = req.query.dest;
+
+  let shortestDistanceNode = (distances, visited) => {
+    let shortest = null;
+    
+    for (let node in distances) {
+      let currentIsShortest = shortest === null || distances[node] < distances[shortest];
+      if (currentIsShortest && !visited.includes(node)) {
+        shortest = node;
+      }
+    }
+    return shortest;
+  };
+  
+  let findShortestPath = (problem, startNode, endNode) => {
+    let distances = {};
+    distances[endNode] = "Infinity";
+    distances = Object.assign(distances, problem[startNode]["connected"]);
+    // track paths using a hash object
+    let parents = { endNode: null };
+    for (let child in problem[startNode]["connected"]) {
+      parents[child] = startNode;
+    }
+   
+      let visited = [];
+  
+    let node = shortestDistanceNode(distances, visited);
+    
+    
+    while (node) {
+      let distance = distances[node];
+      let children = problem[node]["connected"];
+          
+    // for each of those child nodes:
+      for (let child in children) {
+        if (String(child) === String(startNode)) {
+          continue;
+        } else {
+          let newdistance = distance + children[child];
+          if (!distances[child] || distances[child] > newdistance) {
+            distances[child] = newdistance;
+            parents[child] = node;
+          }
+        }
+      }
+      visited.push(node);
+      node = shortestDistanceNode(distances, visited);
+    }
+  
+    let shortestPath = [endNode];
+    let parent = parents[endNode];
+    while (parent) {
+      shortestPath.push(parent);
+      parent = parents[parent];
+      console.log(shortestPath)
+    }
+    shortestPath.reverse();
+      
+    let results = {
+      distance: distances[endNode],
+      path: shortestPath,
+    };
+    
+      return results;
+  };
+
+  let result = findShortestPath(map.map, source, destination);
+  res.render("index", {result: result});
+
+})
 
 
 let port = process.env.PORT;
