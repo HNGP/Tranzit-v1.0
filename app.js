@@ -14,7 +14,8 @@ app.set('view engine', 'ejs');
 
 
 app.get("/", function(req,res){
-    res.render("index");
+    let stations = Object.keys(map.map);
+    res.render("index",{stations: stations});
 });
 
 app.get("/map", function(req,res){
@@ -105,7 +106,8 @@ app.get("/calroute", function(req,res){
   console.log(JSON.stringify(result))
   //lund = JSON.parse(result)
   //res.send(result)
-  res.render("resultPage", {data: result});
+  let stations = Object.keys(map.map);
+  res.render("resultPage", {data: result,stations: stations});
   
 
 })

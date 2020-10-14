@@ -36,34 +36,18 @@
            <!-- <input type="text" id="src"> -->
            <select name="src" id="src">
             <option value="">Choose Source</option>
-            <option value="HUDA City Centre">HUDA City Centre</option>
-            <option value="Saket">Saket</option>
-            <option value="Hauz Khas">Hauz Khas</option>
-            <option value="INA">INA</option>
-            <option value="Botanical Garden">Botanical Garden</option>
-            <option value="Noida City Centre">Noida City Centre</option>
-            <option value="Rajiv Chowk">Rajiv Chowk</option>
-            <option value="Munirka">Munirka</option>
-            <option value="Indira Gandhi International Airport">Indira Gandhi International Airport</option>
-            <option value="Janakpuri West">Janakpuri West</option>
-            <option value="Dwarka">Dwarka</option>
+            <% stations.forEach((station) => { %>
+              <option value="<%= station %>" > <%=station %> </option>
+              <%  })  %>            
           </select>
         </td>
       <td>
         <!-- <input type="text" id="dest"> -->
         <select name="dest" id= "dest">
           <option value="">Choose Destination</option>
-          <option value="HUDA City Centre">HUDA City Centre</option>
-          <option value="Saket">Saket</option>
-          <option value="Hauz Khas">Hauz Khas</option>
-          <option value="INA">INA</option>
-          <option value="Botanical Garden">Botanical Garden</option>
-          <option value="Noida City Centre">Noida City Centre</option>
-          <option value="Rajiv Chowk">Rajiv Chowk</option>
-          <option value="Munirka">Munirka</option>
-          <option value="Indira Gandhi International Airport">Indira Gandhi International Airport</option>
-          <option value="Janakpuri West">Janakpuri West</option>
-          <option value="Dwarka">Dwarka</option>
+          <% stations.forEach((station) => { %>
+            <option value="<%= station %>" > <%=station %> </option>
+            <%  })  %>
         </select>
       </td>
     </tr>
@@ -78,7 +62,7 @@
  
     <div id="result">
         <h2 id="dist">Distance: <%- data["distance"].toFixed(2) %>km</h2>
-        <h2 id="dist">Time: <%- (data["distance"].toFixed(2)/20).toFixed(1) %>hr</h2>
+        <h2 id="dist">Time: <%- (data["distance"].toFixed(2)/32).toFixed(1) %>hr</h2>
         <div id="route">
            
                 <% for(var i in data.path) { %>
