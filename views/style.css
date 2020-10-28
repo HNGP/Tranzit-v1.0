@@ -132,3 +132,10 @@ select{
     left: 15%;
     padding:1%;
 }
+
+@media(max-width:768px){
+    #route, #dist{
+      max-width: 300px ;
+      margin-left: 10px;
+    }
+}
