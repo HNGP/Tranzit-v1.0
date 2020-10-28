@@ -136,6 +136,6 @@ select{
 @media(max-width:768px){
     #route, #dist{
       max-width: 300px ;
-      margin-left: 70px;
+      margin-left: 50px;
     }
 }
