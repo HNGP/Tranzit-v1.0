@@ -25,14 +25,11 @@
     <div class = "stackView">
       <div id = "container2">
       </div>
-      <table>
+    
         <form method="GET" action="/calroute">
-        <tr>
-          <td><label for="Source">Source:</label></td>
-          <td><label for="Destination">Destination:</label></td>
-       </tr>
-       <tr>
-         <td>
+        
+        <div class="row">
+          <div class="col sm-12 md-12">
            <!-- <input type="text" id="src"> -->
            <select name="src" id="src">
             <option value="">Choose Source</option>
@@ -40,25 +37,25 @@
               <option value="<%= station %>" > <%=station %> </option>
               <%  })  %>
           </select>
-        </td>
-      <td>
-        <!-- <input type="text" id="dest"> -->
+        </div> </div>
+        <div class="row">
+      <div class="col sm-12 md-6">
         <select name="dest" id= "dest">
           <option value="">Choose Destination</option>
           <% stations.forEach((station) => { %>
             <option value="<%= station %>" > <%=station %> </option>
             <%  })  %>
         </select>
-      </td>
-    </tr>
-
-      <tr>
-        <td colspan="2">
+      </div>
+    </div>
+    
+      <div class="row">
+        <div class="col md-12">
           <input type="submit" class="btn-block my-4 button" value="FIND SHORTEST ROUTE">
-        </td>
-      </tr>
+        </div>
+      <div>
     </form>
-  </table>
+ 
  
     <div id="result">
         <h1 id="dist"></h1>
@@ -67,43 +64,6 @@
   </div>
 </div>
 <script>
-  // function results(){
-  //   document.getElementById("dist").innerHTML = "";
-  //   document.getElementById("route").innerHTML = "";
-  //   document.getElementById("dist").textContent += "Distance: " + result.result.distance + "km";
-  //   var count = result.result.length;
-  //   for (var x in result.path) {
-  //     document.getElementById("route").innerHTML += result.path[x];
-  //     document.getElementById("route").innerHTML += " ";
-  //     var line = problem[result.path[x]]["details"]["line"];
-  //     for (var y in line) {
-  //       if (line[y] == "Blue Line") {
-  //         document.getElementById("route").innerHTML += line;
-  //         document.getElementById("route").classList.add("blue");
-  //         document.getElementById("route").classList.remove("yellow");
-  //         document.getElementById("route").classList.remove("magenta");
-  //       }
-  //       else if (line[y] == "Yellow Line") {
-  //         document.getElementById("route").innerHTML += line;
-  //         document.getElementById("route").classList.add("yellow");
-  //         document.getElementById("route").classList.remove("blue");
-  //         document.getElementById("route").classList.remove("magenta");
-  //       }
-  //       else if (line[y] == "Magenta Line") {
-  //         document.getElementById("route").innerHTML += line;
-  //         document.getElementById("route").classList.add("magenta");
-  //         document.getElementById("route").classList.remove("blue");
-  //         document.getElementById("route").classList.remove("yellow");
-  //       }
-  //     }
-      
-  //     if (count > 1)
-  //     {
-  //       document.getElementById("route").innerHTML += '<li>';
-  //     }
-  //     count = count - 1;
-  //   }
-  // }
   
 </script>
 </body>

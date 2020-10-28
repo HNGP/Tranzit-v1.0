@@ -49,21 +49,23 @@ table{
 }
 
 .container{
-    /* max-width: 700px;
-    margin: 100px auto; */
-    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
-    -9px -9px 16px rgba(255, 255, 255, 0.5);
-    /* height: 100% */
-    width: 60%;
+    /* box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5); 
+    margin-top: 10%;
+    padding: 50px;  
+    top: 55%;
+    width: 90%;
     position: absolute;
-    top: 65%;
     left: 50%;
-    padding:1%;
+    
+
     transform: translate(-50%, -50%);
-    border-radius: 10px 10px;
-    background: #e0e5ec;
+    border-radius: 10px 10px;*/
+    background: #e0e5ec; 
+    padding-top: 150px ;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+
 }
 
 select{
@@ -75,6 +77,8 @@ select{
     opacity: 0.8;
     box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
     -9px -9px 16px rgba(255, 255, 255, 0.5);
+    margin: 10px;
+    width: 90%;
    
     
 }
@@ -86,15 +90,19 @@ select{
     background-color: #e0e5ec;
     border-radius: 10px;
     padding: 10px;
-    width: 40px;
+    width: 90%;
+    margin: 10px;
 }
 
 #dist{
+    margin-top: 50px;
     text-align: center;
+    margin-left: -40px;
 }
 
 #route{
     margin-top: 20px;
+    margin-left: -40px;
     font-size: 20px;
     text-align: center;
  
@@ -113,6 +121,7 @@ select{
 
 #route li{
     list-style-image: url("arrow.png");
+    margin: -20px;
 }
 
 .container2{

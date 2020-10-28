@@ -20,53 +20,52 @@
    
     </div>
 </div>
-
-  <div class = "container">
-    <div class = "stackView">
-      <div id = "container2">
-      </div>
-      <table>
-        <form method="GET" action="/calroute">
-        <tr>
-          <td><label for="Source">Source:</label></td>
-          <td><label for="Destination">Destination:</label></td>
-       </tr>
-       <tr>
-         <td>
-           <!-- <input type="text" id="src"> -->
-           <select name="src" id="src">
-            <option value="">Choose Source</option>
-            <% stations.forEach((station) => { %>
-              <option value="<%= station %>" > <%=station %> </option>
-              <%  })  %>            
-          </select>
-        </td>
-      <td>
-        <!-- <input type="text" id="dest"> -->
-        <select name="dest" id= "dest">
-          <option value="">Choose Destination</option>
+<div class = "container">
+  <div class = "stackView">
+    <div id = "container2">
+    </div>
+  
+      <form method="GET" action="/calroute">
+      
+      <div class="row">
+        <div class="col sm-12 md-12">
+         <!-- <input type="text" id="src"> -->
+         <select name="src" id="src">
+          <option value="">Choose Source</option>
           <% stations.forEach((station) => { %>
             <option value="<%= station %>" > <%=station %> </option>
             <%  })  %>
         </select>
-      </td>
-    </tr>
+      </div> </div>
+      <div class="row">
+    <div class="col sm-12 md-6">
+      <select name="dest" id= "dest">
+        <option value="">Choose Destination</option>
+        <% stations.forEach((station) => { %>
+          <option value="<%= station %>" > <%=station %> </option>
+          <%  })  %>
+      </select>
+    </div>
+  </div>
+  
+    <div class="row">
+      <div class="col md-12">
+        <input type="submit" class="button" value="FIND SHORTEST ROUTE">
+      </div>
+    </div>
+   
+  </form>
 
-      <tr>
-        <td colspan="2">
-          <input type="submit" class="btn-block my-4 button" value="FIND SHORTEST ROUTE">
-        </td>
-      </tr>
-    </form>
-  </table>
  
     <div id="result">
-        <h2 id="dist">Distance: <%- data["distance"].toFixed(2) %>km</h2>
-        <h2 id="dist">Time: <%- (data["distance"].toFixed(2)/32).toFixed(1) %>hr</h2>
+        <h2 id="dist">Distance: <%- data["distance"].toFixed(2) %>km, Time: <%- ((data["distance"].toFixed(2)/32)*60).toFixed(1) %>min</h2>
         <div id="route">
            
                 <% for(var i in data.path) { %>
-                     <h3><%-data.path[i] %></h3><li style='color: red'><%-data.lines[i] %></li> 
+                     <p><%-data.path[i] %>
+                      (<%-data.lines[i] %>)
+                      <li></li>
+                     </p>
                 <%  } %>
                 </div>
     </div>

@@ -29,7 +29,7 @@ const map = {
   "Central Secretariat": {
     "connected": {"INA": 4.4, "Rajiv Chowk": 2.1},
     "details": {
-      "line": ["Yellow Line", "Violet Line"],
+      "line": ["Yellow Line"],
       "layout": "Underground",
       "longitude": 77.21191,
       "latitude": 28.61474
@@ -110,7 +110,7 @@ const map = {
   "New Delhi": {
     "connected": {"Rajiv Chowk": 1.18, "Azadpur": 8.15},
     "details": {
-      "line": ["Yellow Line", "Airport Express"],
+      "line": ["Yellow Line"],
       "layout": "Underground",
       "longitude": 77.22144,
       "latitude": 28.64307
