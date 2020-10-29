@@ -83,7 +83,7 @@ const problem = {
   "Indira Gandhi International Airport": {
     "connected": {"Munirka": 8.53, "Janakpuri West": 8.11},
     "details": {
-      "line": ["Airport Express","Mangenta Line","Blue Line"],
+      "line": ["Airport Express","Magenta Line","Blue Line"],
       "layout": "Underground",
       "longitude": 77.08669,
       "latitude": 28.55693
@@ -131,8 +131,8 @@ let findShortestPath = (problem, startNode, endNode) => {
     parents[child] = startNode;
   }
  
-    let visited = [];
-
+  let visited = [];
+  
   let node = shortestDistanceNode(distances, visited);
   
   

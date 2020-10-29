@@ -13,10 +13,10 @@
 <body >
   <div class="Header">
     <div class="Nav">
-    <a class ="brand" href="./"><img src="subway.png" width="38px">Tranzit</a>
+    <a class ="brand" href="./"><img src="./images/subway.png" width="38px">Tranzit</a>
     <a href="./">Home</a>
     <a href="./map">Map</a>
-    <a href="./">About</a>
+    <a href="./about">About</a>
    
     </div>
 </div>
@@ -58,15 +58,29 @@
 
  
     <div id="result">
-        <h2 id="dist">Distance: <%- data["distance"].toFixed(2) %>km, Time: <%- ((data["distance"].toFixed(2)/32)*60).toFixed(1) %>min</h2>
+        <h2 id="dist">Distance: <%- data["distance"].toFixed(2) %> km, Time: <%- ((data["distance"].toFixed(2)/32)*60).toFixed(1) %>min</h2>
         <div id="route">
            
                 <% for(var i in data.path) { %>
-                     <p><%-data.path[i] %>
-                      (<%-data.lines[i] %>)
-                      <li></li>
+                     <p><%-data.path[i]%>(
+                      <% if (data.lines[i].length>0){ %>
+                        <% for(var j in data.path) { %>
+                          <%-data.lines[i][j] %>
+                          <% if (data.lines[i][j]=="Blue Line"){ %>
+                            <img src="./images/blue.png" height="23px" width="23px">
+                          <% } %>
+                          <% if (data.lines[i][j]=="Yellow Line"){ %>
+                            <img src="./images/yellow.png" height="23px" width="23px">
+                          <% } %>
+                          <% if (data.lines[i][j]=="Magenta Line"){ %>
+                            <img src="./images/magenta.png" height="23px" width="23px">
+                          <% } %>
+                        <% } %>
+                      <% } %>
+                     )
+                     <li></li>
                      </p>
-                <%  } %>
+                <% } %>
                 </div>
     </div>
   </div>

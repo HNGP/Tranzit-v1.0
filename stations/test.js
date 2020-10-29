@@ -155,7 +155,7 @@ const map = {
   "Terminal 1 IGI Airport": {
     "connected": {"Munirka": 8.53, "Janakpuri West": 8.11},
     "details": {
-      "line": ["Mangenta Line"],
+      "line": ["Magenta Line"],
       "layout": "Underground",
       "longitude": 77.08669,
       "latitude": 28.55693

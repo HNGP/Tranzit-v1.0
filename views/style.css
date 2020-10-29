@@ -48,6 +48,24 @@ table{
     margin-top: 50px;
 }
 
+.jumbotron1{
+    background:#e0e5ec;
+    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 40px;
+    border: 0;
+    margin-top: 120px;
+    color: black;
+}
+
+.colchange{
+    color:#474545;
+    margin-top: -1px;
+    margin-bottom: 20px;
+  }
+  
+
 .container{
     /* box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
     -9px -9px 16px rgba(255, 255, 255, 0.5); 
@@ -120,7 +138,7 @@ select{
 
 
 #route li{
-    list-style-image: url("arrow.png");
+    list-style-image: url("./images/arrow.png");
     margin: -20px;
 }
 
@@ -132,10 +150,44 @@ select{
     left: 15%;
     padding:1%;
 }
+.container3 {
+    height: 122%;
+    width: 60%;
+    position: absolute;
+    top: 18%;
+    left: 20%;
+    padding-left:3%;
+    padding-right:3%;
+    padding-top: 0.8%;
+    padding-bottom: 8%;
+    margin-top: 2%;
+}
+.logomar{
+    margin:auto;
+  }
+#logomar-mid{
+    margin-top:4.5%;
+    margin-left: 280px;
+  }
 
 @media(max-width:768px){
     #route, #dist{
       max-width: 300px ;
       margin-left: 50px;
+    }
+    .container3{
+        width: 90%;
+        left: 5%;
+        padding-left:3%;
+        padding-right:3%;
+        padding-top: 0.8%;
+        padding-bottom: 8%;
+    }
+    .logomar{
+        height: 100px;
+        width: 150px;
+    }
+    #logomar-mid{
+        margin-left: 110px;
     }
 }

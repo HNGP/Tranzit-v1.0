@@ -22,6 +22,10 @@ app.get("/map", function(req,res){
   res.render("map");
 });
 
+app.get("/about", function(req,res){
+  res.render("about");
+});
+
 app.get("/calroute", function(req,res){
   var source = req.query.src;
   var destination = req.query.dest;
