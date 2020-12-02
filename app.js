@@ -1,7 +1,7 @@
 var express = require("express");
 var path = require('path');
 var bodyParser = require("body-parser")
-var map = require('./stations/test');
+var map = require('./stations/delhi');
 var app = express();
 
 
@@ -30,6 +30,25 @@ app.get("/calroute", function(req,res){
   var source = req.query.src;
   var destination = req.query.dest;
 
+  function getDistance(lat1, lon1, lat2, lon2){
+   
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1); 
+    var a = 
+       Math.sin(dLat/2) * Math.sin(dLat/2) +
+       Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+       Math.sin(dLon/2) * Math.sin(dLon/2); 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in km
+    // document.getElementById("container2").innerHTML += '<br>' + d + 'km';
+    return d;
+  }
+ 
+  function deg2rad(deg) {
+    return deg * (Math.PI/180)
+  }
+
   let shortestDistanceNode = (distances, visited) => {
     let shortest = null;
     
@@ -45,7 +64,13 @@ app.get("/calroute", function(req,res){
   let findShortestPath = (problem, startNode, endNode) => {
     let distances = {};
     distances[endNode] = "Infinity";
-    distances = Object.assign(distances, problem[startNode]["connected"]);
+    let a = {};
+    for(i in problem[startNode]["connected"])
+    {
+        a[i] = getDistance(problem[startNode]["details"]["latitude"], problem[startNode]["details"]["longitude"], problem[i]["details"]["latitude"], problem[i]["details"]["longitude"]);
+    }
+    
+    distances = Object.assign(distances, a);
     // track paths using a hash object
     let parents = { endNode: null };
     for (let child in problem[startNode]["connected"]) {
@@ -59,7 +84,12 @@ app.get("/calroute", function(req,res){
     
     while (node) {
       let distance = distances[node];
-      let children = problem[node]["connected"];
+      b = {};
+      for(i in problem[node]["connected"])
+      {
+          b[i] = getDistance(problem[node]["details"]["latitude"], problem[node]["details"]["longitude"], problem[i]["details"]["latitude"], problem[i]["details"]["longitude"]);
+      }
+      let children = b;
           
     // for each of those child nodes:
       for (let child in children) {
