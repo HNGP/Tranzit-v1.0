@@ -25,42 +25,8 @@
     <div class = "stackView">
       <div id = "container2">
       </div>
-    
-        <form method="GET" action="/calroute">
-        
-        <div class="row">
-          <div class="col sm-12 md-12">
-           <!-- <input type="text" id="src"> -->
-           <select name="src" id="src">
-            <option value="">Choose Source</option>
-            <% stations.forEach((station) => { %>
-              <option value="<%= station %>" > <%=station %> </option>
-              <%  })  %>
-          </select>
-        </div> </div>
-        <div class="row">
-      <div class="col sm-12 md-6">
-        <select name="dest" id= "dest">
-          <option value="">Choose Destination</option>
-          <% stations.forEach((station) => { %>
-            <option value="<%= station %>" > <%=station %> </option>
-            <%  })  %>
-        </select>
-      </div>
-    </div>
-    
-      <div class="row">
-        <div class="col md-12">
-          <input type="submit" class="btn-block my-4 button" value="FIND SHORTEST ROUTE">
-        </div>
-      <div>
-    </form>
- 
- 
-    <div id="result">
-        <h1 id="dist"></h1>
-        <p id="route"><ul></ul></p>
-    </div>
+        <button><a href="/delhi">Delhi</a></button>
+        <button><a href="/chennai">Chennai</a></button>
   </div>
 </div>
 <script>

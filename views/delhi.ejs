@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranzit</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="algo.js"></script>
+    <script src="geoloc.js"></script>
+    
+</head>
+<body >
+  <div class="Header">
+    <div class="Nav">
+    <a class ="brand" href="./"><img src="./images/subway.png" width="38px">Tranzit</a>
+    <a href="./">Home</a>
+    <a href="./map">Map</a>
+    <a href="./about">About</a>
+   
+    </div>
+</div>
+
+  <div class = "container">
+    <div class = "stackView">
+      <div id = "container2">
+      </div>
+    
+        <form method="GET" action="/calroute">
+        
+        <div class="row">
+          <div class="col sm-12 md-12">
+           <!-- <input type="text" id="src"> -->
+           <select name="src" id="src">
+            <option value="">Choose Source</option>
+            <% stations.forEach((station) => { %>
+              <option value="<%= station %>" > <%=station %> </option>
+              <%  })  %>
+          </select>
+        </div> </div>
+        <div class="row">
+      <div class="col sm-12 md-6">
+        <select name="dest" id= "dest">
+          <option value="">Choose Destination</option>
+          <% stations.forEach((station) => { %>
+            <option value="<%= station %>" > <%=station %> </option>
+            <%  })  %>
+        </select>
+      </div>
+    </div>
+    
+      <div class="row">
+        <div class="col md-12">
+          <input type="submit" class="btn-block my-4 button" value="FIND SHORTEST ROUTE">
+        </div>
+      <div>
+    </form>
+ 
+ 
+    <div id="result">
+        <h1 id="dist"></h1>
+        <p id="route"><ul></ul></p>
+    </div>
+  </div>
+</div>
+<script>
+  
+</script>
+</body>
+</html>

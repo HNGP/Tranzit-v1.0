@@ -1,10 +1,10 @@
-const map = {
+const mapchennai = {
     "Chennai Airport Metro": {
         "connected": {"Meenambakkam Metro": 0},
         "details": {
           "line": ["Blue Line"],
           "layout": "Elevated",
-          "longitude": 80.16442407671289, 
+          "longitude": 80.16442407671289,
           "latitude": 12.981912782634431
         }
       },
@@ -278,6 +278,8 @@ const map = {
           "latitude":  13.08010234942698
         }
       },
+}
 
-
+module.exports = {
+  mapchennai : mapchennai
 }
