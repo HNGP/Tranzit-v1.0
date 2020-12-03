@@ -431,7 +431,7 @@ function showPosition(position) {
   n = Math.min(... distancelist)
   console.log(n)
   i = distancelist.indexOf(n)
-  document.getElementById("container2").innerHTML += '<br> <h3> Nearest Station: ' + nearestObj[i] + ' (' + n.toFixed(2) + 'KM) </h3>' ;
+  document.getElementById("container2").innerHTML += '<br> <h3 class="geoloc"> Nearest Station: ' + nearestObj[i] + ' (' + n.toFixed(2) + 'KM) </h3>' ;
   console.log(nearestObj[i])
 }
 
