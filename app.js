@@ -274,7 +274,7 @@ app.get("/calroutec", function (req, res) {
   //lund = JSON.parse(result)
   //res.send(result)
   let stations = Object.keys(mapchennai.mapchennai);
-  res.render("resultPagec", {data: result,stations: stations});
+  res.render("resultpagec", {data: result,stations: stations});
   
 
 })
