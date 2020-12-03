@@ -58,26 +58,27 @@
 
  
     <div id="result">
-        <h3>Source: <%-data.path[0]%>    Destination: <%-data.path[data.path.length-1]%></h3>
+        <!-- <h3>Source: <%-data.path[0]%>    Destination: <%-data.path[data.path.length-1]%></h3> -->
         <h2 id="dist">Distance: <%- data["distance"].toFixed(2) %> km, Time: <%- ((data["distance"].toFixed(2)/32)*60).toFixed(1) %>min</h2>
+        <p id="srcdest">Source: <%-data.path[0]%>, Destination: <%-data.path[data.path.length-1]%></p>
         <div id="route">
            
                 <% for(var i in data.path) { %>
-                     <p><%-data.path[i]%>(
+                     <p><%-data.path[i]%> (
                       <% if (data.lines[i].length>0){ %>
                         <% for(var j in data.path) { %>
-                          <%-data.lines[i][j] %>
+                        <%-data.lines[i][j] %>
                           <% if (data.lines[i][j]=="Blue Line"){ %>
-                            <img src="./images/blue.png" height="23px" width="23px">
+                            <img class ="lineIcon" src="./images/blue.png" height="18px" width="18px">
                           <% } %>
                           <% if (data.lines[i][j]=="Yellow Line"){ %>
-                            <img src="./images/yellow.png" height="23px" width="23px">
+                            <img class ="lineIcon" src="./images/yellow.png" height="18px" width="18px">
                           <% } %>
                           <% if (data.lines[i][j]=="Magenta Line"){ %>
-                            <img src="./images/magenta.png" height="23px" width="23px">
+                            <img class ="lineIcon" src="./images/magenta.png" height="18px" width="18px">
                           <% } %>
                           <% if (data.lines[i][j]=="Green Line"){ %>
-                            <img src="./images/green.png" height="23px" width="23px">
+                            <img class ="lineIcon" src="./images/green.png" height="18px" width="18px">
                           <% } %>
                         <% } %>
                       <% } %>
