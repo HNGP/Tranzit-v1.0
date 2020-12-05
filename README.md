@@ -13,8 +13,8 @@ node app.js
 ```
 
 Developed by 
-S C Ashwin
-Kaustubh Debnath
-Sumit Prakash
-Aman Kumar
+<li> S C Ashwin </li>
+<li> Kaustubh Debnath </li>
+<li> Sumit Prakash </li>
+<li> Aman Kumar </li>
 
